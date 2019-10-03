@@ -11,75 +11,52 @@ namespace MovieLibrary
     // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class MovieService : IMovieService
     {
-        private MovieDataSource ds = new MovieDataSource();
         public MovieModel GetMovie(int id)
         {
             MovieModel result;
-            try
+            using (MovieDataSource ds = new MovieDataSource())
             {
                 result = ds.GetMovies().Single(m => m.Id == id);
                 return result;
-            }
-            catch (InvalidOperationException eo)
-            {
-                throw eo;
-            }
-            catch (ArgumentNullException en)
-            {
-                throw en;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
             }
         }
 
         public IQueryable<MovieModel> GetMovies()
         {
-            try
+            using (MovieDataSource ds = new MovieDataSource())
             {
-                return ds.GetMovies();
-            }
-            catch (Exception)
-            {
-
-                throw;
+                IQueryable<MovieModel> result = ds.GetMovies();
+                return result;
             }
         }
 
         public IQueryable<MovieModel> GetMoviesByTitle(string title)
         {
-            try
+            using (MovieDataSource ds = new MovieDataSource())
             {
                 return ds.GetMovies().Where(m => m.Title == title);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            }        
         }
 
         public IQueryable<ReviewModel> GetReviews(int movieId)
         {
 
-            try
+            using (MovieDataSource ds = new MovieDataSource())
             {
                 return ds.GetReviews().Where(r => r.Movie.Id == movieId);
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
         }
 
         public void SubmitReview(int movieId, ReviewModel review)
         {
-            MovieModel movie = ds.GetMovies().Single(m => m.Id == movieId);
-
-            //ds.Entry(movie).State == System.Data.Entity.EntityState.Added;
+            using (MovieDataSource ds = new MovieDataSource())
+            {
+                ReviewModel currentReview = review;
+                MovieModel movie = ds.GetMovies().Single(m => m.Id == movieId);
+                currentReview.Movie = movie;
+                ds.Reviews.Add(currentReview);
+                ds.Save();
+            }
         }
     }
 }
