@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace MovieLibrary
         public DbSet<ReviewModel> Reviews { get; set; }
         public MovieDbContext() : base()
         {
-
+            Database.Log = s => Trace.WriteLine(s);
         }
     }
 }
