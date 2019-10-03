@@ -14,48 +14,48 @@ namespace MovieLibrary
         public MovieModel GetMovie(int id)
         {
             MovieModel result;
-            using (MovieDataSource ds = new MovieDataSource())
+            using (MovieDbContext ds = new MovieDbContext())
             {
-                result = ds.GetMovies().Single(m => m.Id == id);
+                result = ds.Movies.Single(m => m.Id == id);
                 return result;
             }
         }
 
         public IQueryable<MovieModel> GetMovies()
         {
-            using (MovieDataSource ds = new MovieDataSource())
+            using (MovieDbContext ds = new MovieDbContext())
             {
-                IQueryable<MovieModel> result = ds.GetMovies();
+                IQueryable<MovieModel> result = ds.Movies;
                 return result;
             }
         }
 
         public IQueryable<MovieModel> GetMoviesByTitle(string title)
         {
-            using (MovieDataSource ds = new MovieDataSource())
+            using (MovieDbContext ds = new MovieDbContext())
             {
-                return ds.GetMovies().Where(m => m.Title == title);
+                return ds.Movies.Where(m => m.Title == title);
             }        
         }
 
         public IQueryable<ReviewModel> GetReviews(int movieId)
         {
 
-            using (MovieDataSource ds = new MovieDataSource())
+            using (MovieDbContext ds = new MovieDbContext())
             {
-                return ds.GetReviews().Where(r => r.Movie.Id == movieId);
+                return ds.Reviews.Where(r => r.Movie.Id == movieId);
             }
         }
 
         public void SubmitReview(int movieId, ReviewModel review)
         {
-            using (MovieDataSource ds = new MovieDataSource())
+            using (MovieDbContext ds = new MovieDbContext())
             {
                 ReviewModel currentReview = review;
-                MovieModel movie = ds.GetMovies().Single(m => m.Id == movieId);
+                MovieModel movie = ds.Movies.Single(m => m.Id == movieId);
                 currentReview.Movie = movie;
                 ds.Reviews.Add(currentReview);
-                ds.Save();
+                ds.SaveChanges();
             }
         }
     }
