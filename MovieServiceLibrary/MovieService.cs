@@ -23,6 +23,7 @@ namespace MovieLibrary
 
         public IQueryable<MovieModel> GetMovies()
         {
+            //
             using (MovieDbContext ds = new MovieDbContext())
             {
                 IQueryable<MovieModel> result = ds.Movies.Select( m => new MovieModel() { Id = m.Id, Reviews = new List<ReviewModel>() });
