@@ -25,34 +25,34 @@ namespace MovieLibrary
         {
             using (MovieDbContext ds = new MovieDbContext())
             {
-                IQueryable<MovieModel> result = ds.Movies;
+                IQueryable<MovieModel> result = ds.Movies.Select( m => new MovieModel() { Id = m.Id, Reviews = new List<ReviewModel>() });
                 return result;
             }
         }
 
         public IQueryable<MovieModel> GetMoviesByTitle(string title)
         {
-            using (MovieDbContext ds = new MovieDbContext())
+            using (MovieDataSource ds = new MovieDataSource())
             {
-                return ds.Movies.Where(m => m.Title == title);
+                return ds.GetMovies().Where(m => m.Title == title);
             }        
         }
 
         public IQueryable<ReviewModel> GetReviews(int movieId)
         {
 
-            using (MovieDbContext ds = new MovieDbContext())
+            using (MovieDataSource ds = new MovieDataSource())
             {
-                return ds.Reviews.Where(r => r.Movie.Id == movieId);
+                return ds.GetReviews().Where(r => r.Movie.Id == movieId);
             }
         }
 
         public void SubmitReview(int movieId, ReviewModel review)
         {
-            using (MovieDbContext ds = new MovieDbContext())
+            using (MovieDataSource ds = new MovieDataSource())
             {
                 ReviewModel currentReview = review;
-                MovieModel movie = ds.Movies.Single(m => m.Id == movieId);
+                MovieModel movie = ds.GetMovies().Single(m => m.Id == movieId);
                 currentReview.Movie = movie;
                 ds.Reviews.Add(currentReview);
                 ds.SaveChanges();

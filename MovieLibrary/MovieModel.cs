@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
-
-    [DataContract(Name ="Movie", Namespace ="http://myprojects/OData")]
+    // , Namespace ="http://myprojects/OData"
+    [DataContract(Name ="Movie")]
     public class MovieModel
     {
         [DataMember]

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
-    [DataContract(Name = "Review", Namespace = "http://myprojects/OData")]
+    // , Namespace = "http://myprojects"
+    [DataContract(Name = "Review")]
     public class ReviewModel
     {
         [DataMember]
