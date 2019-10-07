@@ -1,4 +1,5 @@
 ﻿using MovieLibrary;
+using MovieLibrary.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,16 @@ namespace MovieLibrary
     public interface IMovieService
     {
         [OperationContract]
-        IQueryable<MovieModel> GetMovies();
+        IList<MovieModelDTO> GetMovies();
 
         [OperationContract]
-        IQueryable<MovieModel> GetMoviesByTitle(string title);
+        IList<MovieModelDTO> GetMoviesByTitle(string title);
 
         [OperationContract]
-        MovieModel GetMovie(int id);
+        MovieModelDTO GetMovie(int id);
 
         [OperationContract]
-        IQueryable<ReviewModel> GetReviews(int movieId);
+        IList<ReviewModelDTO> GetReviews(int movieId);
 
         [OperationContract]
         void SubmitReview(int movieId, ReviewModel review);

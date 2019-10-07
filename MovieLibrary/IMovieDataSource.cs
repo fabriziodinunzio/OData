@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieLibrary.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
-    interface IMovieDataSource
+    public interface IMovieDataSource : IDisposable
     {
         IQueryable<MovieModel> GetMovies();
-        IQueryable<ReviewModel> GetReviews();
+        IQueryable<ReviewModelDTO> GetReviews();
+        void Save();
     }
 }

@@ -4,58 +4,72 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using MovieLibrary;
+using MovieLibrary.DTO;
 
 namespace MovieLibrary
 {
     // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class MovieService : IMovieService
     {
-        public MovieModel GetMovie(int id)
+        public MovieModelDTO GetMovie(int id)
         {
-            MovieModel result;
-            using (MovieDbContext ds = new MovieDbContext())
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
-                result = ds.Movies.Single(m => m.Id == id);
+                MovieModel result;
+                result = _ds.GetMovies().Single(m => m.Id == id);
+                return new MovieModelDTO() { Id = result.Id, Title = result.Title }; 
+            }
+        }
+
+        public IList<MovieModelDTO> GetMovies()
+        {
+            using (IMovieDataSource _ds = new MovieDataSource())
+            {
+                IList<MovieModelDTO> result = _ds.GetMovies().Select(m => new MovieModelDTO()
+                {
+                    Id = m.Id,
+                    Title = m.Title
+                }).ToList();
                 return result;
             }
         }
 
-        public IQueryable<MovieModel> GetMovies()
+        public IList<MovieModelDTO> GetMoviesByTitle(string title)
         {
-            using (MovieDbContext ds = new MovieDbContext())
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
-                IQueryable<MovieModel> result = ds.Movies;
-                return result;
+                IQueryable<MovieModel> result = _ds.GetMovies().Where(m => m.Title == title);
+                return result.Select(m => new MovieModelDTO() { Id = m.Id, Title = m.Title }).ToList(); 
             }
+    
         }
 
-        public IQueryable<MovieModel> GetMoviesByTitle(string title)
+        public IList<ReviewModelDTO> GetReviews(int movieId)
         {
-            using (MovieDataSource ds = new MovieDataSource())
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
-                return ds.GetMovies().Where(m => m.Title == title);
-            }        
-        }
-
-        public IQueryable<ReviewModel> GetReviews(int movieId)
-        {
-
-            using (MovieDataSource ds = new MovieDataSource())
-            {
-                return ds.GetReviews().Where(r => r.Movie.Id == movieId);
+                IList<ReviewModel> result = _ds.GetMovies().Single(m => m.Id == movieId).Reviews.ToList();
+                return result.Select(r => new ReviewModelDTO()
+                {
+                    Id = r.Id,
+                    Rating = r.Rating,
+                    Reviewer = r.Reviewer,
+                    ReviewText = r.ReviewText,
+                    Summary = r.Summary
+                }).ToList(); 
             }
         }
 
         public void SubmitReview(int movieId, ReviewModel review)
         {
-            using (MovieDataSource ds = new MovieDataSource())
+
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
                 ReviewModel currentReview = review;
-                MovieModel movie = ds.GetMovies().Single(m => m.Id == movieId);
+                MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
                 currentReview.Movie = movie;
-                ds.Reviews.Add(currentReview);
-                ds.SaveChanges();
+                movie.Reviews.Add(review);
+                _ds.Save(); 
             }
         }
     }

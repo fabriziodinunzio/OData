@@ -14,7 +14,9 @@ namespace MovieLibrary
         public DbSet<ReviewModel> Reviews { get; set; }
         public MovieDbContext() : base()
         {
-            //Database.Log = s => Trace.WriteLine(s);
+#if DEBUG
+            Database.Log = s => Trace.WriteLine(s);
+#endif
         }
     }
 }
