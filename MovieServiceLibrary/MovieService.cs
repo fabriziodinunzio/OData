@@ -60,16 +60,27 @@ namespace MovieLibrary
             }
         }
 
-        public void SubmitReview(int movieId, ReviewModel review)
-        {
+        public void SubmitReview(
+                                    
+                                    int movieId,
 
-            using (IMovieDataSource _ds = new MovieDataSource())
+                                    ReviewModel review
+                                )
+        {
+            try
             {
-                ReviewModel currentReview = review;
-                MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
-                currentReview.Movie = movie;
-                movie.Reviews.Add(review);
-                _ds.Save(); 
+                using (IMovieDataSource _ds = new MovieDataSource())
+                {
+                    ReviewModel currentReview = review;
+                    MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
+                    currentReview.Movie = movie;
+                    movie.Reviews.Add(review);
+                    _ds.Save();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Source + Environment.NewLine + e.Message);
             }
         }
     }
