@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibrary", "MovieLibrar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieServiceLibrary", "MovieServiceLibrary\MovieServiceLibrary.csproj", "{DCFD82A3-0112-4509-A83A-14F92CD424C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieConsumer", "MovieConsumer\MovieConsumer.csproj", "{74956647-B8A3-4588-A1EA-005E6BA1B9C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,16 @@ Global
 		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 		SolutionGuid = {A81BEB8E-8BDC-4B19-851B-B600571762C3}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

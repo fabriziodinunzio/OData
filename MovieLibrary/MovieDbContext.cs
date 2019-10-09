@@ -12,7 +12,7 @@ namespace MovieLibrary
     {
         public DbSet<MovieModel> Movies { get; set; }
         public DbSet<ReviewModel> Reviews { get; set; }
-        public MovieDbContext() : base()
+        public MovieDbContext() : base("name=LocalMovieDB")
         {
 #if DEBUG
             Database.Log = s => Trace.WriteLine(s);

@@ -10,15 +10,14 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MovieLibrary.MovieDbContext context)
         {
             //  This method will be called after migrating to the latest version.
             context.Movies.AddOrUpdate(
-                new MovieModel[]
-                {
+                 new MovieModel[]
+                 {
                     new MovieModel()
                     {
                          Title="Rambo"
@@ -98,8 +97,8 @@
                              }
                          }
                     }
-                }
-            );
+                 }
+             );
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
         }
