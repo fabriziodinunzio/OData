@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b7e0c80-cd10-45f7-9c5f-93145add141f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/MovieServiceLibrary/MovieLibrary.MovieService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MovieLibrary.xsd" MetadataType="Schema" ID="c1cd556b-40e9-4cb0-8a0c-860ede55f54b" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MovieLibrary.disco" MetadataType="Disco" ID="726dde03-bba8-4e47-8bd3-064436278fda" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?disco" />
+    <MetadataFile FileName="MovieService.wsdl" MetadataType="Wsdl" ID="42371c27-bfb8-486e-b25f-afa8c71e4ebf" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?wsdl" />
+    <MetadataFile FileName="MovieLibrary1.xsd" MetadataType="Schema" ID="4501a8e7-5813-4f90-9840-781147ea4a8f" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MovieLibrary2.xsd" MetadataType="Schema" ID="cc44fb74-3a8a-4c68-98f6-e04188ee030f" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MovieLibrary3.xsd" MetadataType="Schema" ID="49c62fa6-b922-4be5-b4e3-f1c74dec2a45" SourceId="1" SourceUrl="http://desktop-spmrh68/MovieServiceLibrary/MovieLibrary.MovieService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

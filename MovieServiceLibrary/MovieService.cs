@@ -29,7 +29,7 @@ namespace MovieLibrary
                 {
                     Id = m.Id,
                     Title = m.Title
-                }).ToList();
+                }).ToList<MovieModelDTO>();
                 return result;
             }
         }
