@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MovieLibrary;
+using MovieLibrary.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -10,22 +12,77 @@ namespace WcfServiceLibrary1
     // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public MovieModelDTO GetMovie(int id)
         {
-            return string.Format("You entered: {0}", value);
+            using (IMovieDataSource _ds = new MovieDataSource())
+            {
+                MovieModel result;
+                result = _ds.GetMovies().Single(m => m.Id == id);
+                return new MovieModelDTO() { Id = result.Id, Title = result.Title };
+            }
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public IList<MovieModelDTO> GetMovies()
         {
-            if (composite == null)
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
-                throw new ArgumentNullException("composite");
+                IList<MovieModelDTO> result = _ds.GetMovies().Select(m => new MovieModelDTO()
+                {
+                    Id = m.Id,
+                    Title = m.Title
+                }).ToList<MovieModelDTO>();
+                return result;
             }
-            if (composite.BoolValue)
+        }
+
+        public IList<MovieModelDTO> GetMoviesByTitle(string title)
+        {
+            using (IMovieDataSource _ds = new MovieDataSource())
             {
-                composite.StringValue += "Suffix";
+                IQueryable<MovieModel> result = _ds.GetMovies().Where(m => m.Title == title);
+                return result.Select(m => new MovieModelDTO() { Id = m.Id, Title = m.Title }).ToList();
             }
-            return composite;
+
+        }
+
+        public IList<ReviewModelDTO> GetReviews(int movieId)
+        {
+            using (IMovieDataSource _ds = new MovieDataSource())
+            {
+                IList<ReviewModel> result = _ds.GetMovies().Single(m => m.Id == movieId).ReviewModels.ToList();
+                return result.Select(r => new ReviewModelDTO()
+                {
+                    Id = r.Id,
+                    Rating = r.Rating,
+                    Reviewer = r.Reviewer,
+                    ReviewText = r.ReviewText,
+                    Summary = r.Summary
+                }).ToList();
+            }
+        }
+
+        public void SubmitReview(
+
+                                    int movieId,
+
+                                    ReviewModel review
+                                )
+        {
+            try
+            {
+                using (IMovieDataSource _ds = new MovieDataSource())
+                {
+                    ReviewModel currentReview = review;
+                    MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
+                    currentReview.MovieModel = movie;
+                    movie.ReviewModels.Add(review);
+                    _ds.Save();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Source + Environment.NewLine + e.Message);
+            }
         }
     }
 }

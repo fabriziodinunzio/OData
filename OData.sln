@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibrary", "MovieLibrary\MovieLibrary.csproj", "{15B35787-3D77-4B48-8C24-9791B553AC31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieServiceLibrary", "MovieServiceLibrary\MovieServiceLibrary.csproj", "{DCFD82A3-0112-4509-A83A-14F92CD424C3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieConsumer", "MovieConsumer\MovieConsumer.csproj", "{74956647-B8A3-4588-A1EA-005E6BA1B9C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibrary1", "WcfServiceLibrary1\WcfServiceLibrary1.csproj", "{0590A327-509D-4B93-8E6B-32674B3C1337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieServiceLibrary", "MovieServiceLibrary\MovieServiceLibrary.csproj", "{F38BD795-AA6F-4162-BCB5-A746A476F594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{15B35787-3D77-4B48-8C24-9791B553AC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B35787-3D77-4B48-8C24-9791B553AC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B35787-3D77-4B48-8C24-9791B553AC31}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCFD82A3-0112-4509-A83A-14F92CD424C3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74956647-B8A3-4588-A1EA-005E6BA1B9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,12 +29,16 @@ Global
 		{0590A327-509D-4B93-8E6B-32674B3C1337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0590A327-509D-4B93-8E6B-32674B3C1337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0590A327-509D-4B93-8E6B-32674B3C1337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38BD795-AA6F-4162-BCB5-A746A476F594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38BD795-AA6F-4162-BCB5-A746A476F594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38BD795-AA6F-4162-BCB5-A746A476F594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38BD795-AA6F-4162-BCB5-A746A476F594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 		SolutionGuid = {A81BEB8E-8BDC-4B19-851B-B600571762C3}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

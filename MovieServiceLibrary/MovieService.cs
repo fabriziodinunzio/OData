@@ -17,7 +17,7 @@ namespace MovieLibrary
             {
                 MovieModel result;
                 result = _ds.GetMovies().Single(m => m.Id == id);
-                return new MovieModelDTO() { Id = result.Id, Title = result.Title }; 
+                return new MovieModelDTO() { Id = result.Id, Title = result.Title };
             }
         }
 
@@ -39,9 +39,9 @@ namespace MovieLibrary
             using (IMovieDataSource _ds = new MovieDataSource())
             {
                 IQueryable<MovieModel> result = _ds.GetMovies().Where(m => m.Title == title);
-                return result.Select(m => new MovieModelDTO() { Id = m.Id, Title = m.Title }).ToList(); 
+                return result.Select(m => new MovieModelDTO() { Id = m.Id, Title = m.Title }).ToList();
             }
-    
+
         }
 
         public IList<ReviewModelDTO> GetReviews(int movieId)
@@ -56,12 +56,12 @@ namespace MovieLibrary
                     Reviewer = r.Reviewer,
                     ReviewText = r.ReviewText,
                     Summary = r.Summary
-                }).ToList(); 
+                }).ToList();
             }
         }
 
         public void SubmitReview(
-                                    
+
                                     int movieId,
 
                                     ReviewModel review
