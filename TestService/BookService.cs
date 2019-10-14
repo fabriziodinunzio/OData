@@ -7,7 +7,7 @@ using System.Text;
 
 namespace TestService
 {
-    // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
+    //// NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class BookService : IBookService
     {
         public string GetData(int value)
