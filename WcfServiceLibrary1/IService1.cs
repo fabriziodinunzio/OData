@@ -1,11 +1,10 @@
-﻿using MovieLibrary.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
-
 
 namespace WcfServiceLibrary1
 {
@@ -14,19 +13,14 @@ namespace WcfServiceLibrary1
     public interface IService1
     {
         [OperationContract]
-        IList<MovieModelDTO> GetMovies();
+        [WebGet]
+        string GetData(int value);
 
-        [OperationContract]
-        IList<MovieModelDTO> GetMoviesByTitle(string title);
+        //[OperationContract]
+        //[WebGet]
+        //CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        [OperationContract]
-        MovieModelDTO GetMovie(int id);
-
-        [OperationContract]
-        IList<ReviewModelDTO> GetReviews(int movieId);
-
-        [OperationContract]
-        void SubmitReview(int movieId, ReviewModel review);
+        // TODO: aggiungere qui le operazioni del servizio
     }
 
     // Per aggiungere tipi compositi alle operazioni del servizio utilizzare un contratto di dati come descritto nell'esempio seguente.

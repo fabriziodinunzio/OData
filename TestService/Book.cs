@@ -7,16 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfServiceLibrary1
+namespace TestService
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class C__MigrationHistory
+    public partial class Book
     {
-        public string MigrationId { get; set; }
-        public string ContextKey { get; set; }
-        public byte[] Model { get; set; }
-        public string ProductVersion { get; set; }
+        public int Id { get; set; }
+        public string BookName { get; set; }
     }
 }

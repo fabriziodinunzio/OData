@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WcfServiceLibrary1
+namespace TestService
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MovieLibraryEntities : DbContext
+    public partial class BookDbEntities : DbContext
     {
-        public MovieLibraryEntities()
-            : base("name=MovieLibraryEntities")
+        public BookDbEntities()
+            : base("name=BookDbEntities")
         {
         }
     
@@ -25,8 +25,6 @@ namespace WcfServiceLibrary1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<MovieModel> MovieModels { get; set; }
-        public virtual DbSet<ReviewModel> ReviewModels { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
     }
 }
