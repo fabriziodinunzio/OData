@@ -1,16 +1,21 @@
-﻿using System;
+﻿using MovieLibrary;
+using MovieLibrary.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using MovieLibrary.DTO;
 
-namespace MovieLibrary
+namespace MovieServiceLibrary2
 {
     // NOTA: è possibile utilizzare il comando "Rinomina" del menu "Refactoring" per modificare il nome di classe "Service1" nel codice e nel file di configurazione contemporaneamente.
     public class MovieService : IMovieService
     {
+        public string GetData(int value)
+        {
+            return string.Format("You entered: {0}", value);
+        }
         public MovieModelDTO GetMovie(int id)
         {
             using (IMovieDataSource _ds = new MovieDataSource())

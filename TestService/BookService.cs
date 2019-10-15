@@ -17,7 +17,7 @@ namespace TestService
 
         public List<Book> GetBooksList()
         {
-            using (BookDbEntities entities = new BookDbEntities())
+            using (BookDbExpressEntities entities = new BookDbExpressEntities())
             {
                 return entities.Books.ToList();
             }
@@ -29,7 +29,7 @@ namespace TestService
             {
                 int bookId = Convert.ToInt32(id);
 
-                using (BookDbEntities entities = new BookDbEntities())
+                using (BookDbExpressEntities entities = new BookDbExpressEntities())
                 {
                     return entities.Books.SingleOrDefault(book => book.Id == bookId);
                 }
@@ -42,7 +42,7 @@ namespace TestService
 
         public void AddBook(string name)
         {
-            using (BookDbEntities entities = new BookDbEntities())
+            using (BookDbExpressEntities entities = new BookDbExpressEntities())
             {
                 Book book = new Book { BookName = name };
                 entities.Books.Add(book);
@@ -56,7 +56,7 @@ namespace TestService
             {
                 int bookId = Convert.ToInt32(id);
 
-                using (BookDbEntities entities = new BookDbEntities())
+                using (BookDbExpressEntities entities = new BookDbExpressEntities())
                 {
                     Book book = entities.Books.SingleOrDefault(b => b.Id == bookId);
                     book.BookName = name;
@@ -75,7 +75,7 @@ namespace TestService
             {
                 int bookId = Convert.ToInt32(id);
 
-                using (BookDbEntities entities = new BookDbEntities())
+                using (BookDbExpressEntities entities = new BookDbExpressEntities())
                 {
                     Book book = entities.Books.SingleOrDefault(b => b.Id == bookId);
                     entities.Books.Remove(book);

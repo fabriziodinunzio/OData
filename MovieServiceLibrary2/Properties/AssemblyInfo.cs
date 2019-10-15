@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Le informazioni generali relative a un assembly sono controllate dal seguente 
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
-[assembly: AssemblyTitle("WcfServiceLibrary1")]
+[assembly: AssemblyTitle("MovieServiceLibrary2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("WcfServiceLibrary1")]
+[assembly: AssemblyProduct("MovieServiceLibrary2")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Se il progetto viene esposto a COM, il GUID seguente verrà utilizzato come ID della libreria dei tipi
-[assembly: Guid("a48ad804-39f7-43ef-b6b9-5d2e3d45a3b8")]
+[assembly: Guid("869d3dd8-04c6-4434-bad6-522873f49dfe")]
 
 // Le informazioni sulla versione di un assembly sono costituite dai seguenti quattro valori:
 //
