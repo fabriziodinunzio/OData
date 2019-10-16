@@ -34,7 +34,7 @@ namespace MovieServiceLibrary2
 
             [OperationContract]
             [WebInvoke(Method = "POST", UriTemplate = "Reviews?movieId={movieId}")]
-            void SubmitReview(int movieId, ReviewModel review);
+            void SubmitReview(int movieId, ReviewModelDTO review);
 
             [OperationContract]
             [WebGet]

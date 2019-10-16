@@ -69,17 +69,17 @@ namespace MovieServiceLibrary2
 
                                     int movieId,
 
-                                    ReviewModel review
+                                    ReviewModelDTO review
                                 )
         {
             try
             {
                 using (IMovieDataSource _ds = new MovieDataSource())
                 {
-                    ReviewModel currentReview = review;
+                    ReviewModelDTO currentReview = review;
                     MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
-                    currentReview.Movie = movie;
-                    movie.Reviews.Add(review);
+                    ReviewModel rev = new ReviewModel() { Rating = currentReview.Rating, ReviewText = currentReview.ReviewText, Reviewer = currentReview.Reviewer, Summary = currentReview.Summary };
+                    movie.Reviews.Add(rev);
                     _ds.Save();
                 }
             }
