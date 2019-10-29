@@ -1,5 +1,6 @@
 ﻿namespace MovieLibrary.Migrations
 {
+    using MovieLibrary.DTO;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

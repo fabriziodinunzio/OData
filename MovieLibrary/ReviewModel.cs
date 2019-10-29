@@ -11,17 +11,17 @@ namespace MovieLibrary
     [DataContract(Name = "Review")]
     public class ReviewModel
     {
-        [DataMember]
+        
         public virtual int Id { get; set; }
-        [DataMember]
+        
         public virtual string Reviewer { get; set; }
-        [DataMember]
+        
         public virtual string Summary { get; set; }
-        [DataMember]
+        
         public virtual decimal Rating { get; set; }
-        [DataMember]
+        
         public virtual string ReviewText { get; set; }
-        [DataMember]
+        
         public virtual MovieModel Movie { get; set; }
     }
 }
