@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
-    public class MovieDataSource : IMovieDataSource
+    public class MovieDataSource : IMovieDataSource, IDisposable
     {
         private MovieDbContext _ctx;
-        public MovieDataSource()
+        public MovieDataSource(MovieDbContext context)
         {
-            _ctx = new MovieDbContext();
+            _ctx = context;
         }
 
         public IQueryable<MovieModel> GetMovies()
@@ -24,16 +24,9 @@ namespace MovieLibrary
         {
                 return _ctx.Movies.Single(m => m.Id == id);
         }
-        public IQueryable<ReviewModelDTO> GetReviews()
+        public IQueryable<ReviewModel> GetReviews(int movieId)
         {
-                return _ctx.Reviews.Select(r => new ReviewModelDTO() 
-                { 
-                    Id = r.Id, 
-                    Rating = r.Rating, 
-                    Reviewer = r.Reviewer, 
-                    ReviewText = r.ReviewText, 
-                    Summary = r.Summary 
-                });  
+            return _ctx.Movies.Single(m => m.Id == movieId).Reviews.AsQueryable();
         }
 
         public void Save()

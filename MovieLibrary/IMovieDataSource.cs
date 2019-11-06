@@ -10,7 +10,7 @@ namespace MovieLibrary
     public interface IMovieDataSource : IDisposable
     {
         IQueryable<MovieModel> GetMovies();
-        IQueryable<ReviewModelDTO> GetReviews();
+        IQueryable<ReviewModel> GetReviews(int movieId);
         void Save();
     }
 }

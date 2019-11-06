@@ -18,7 +18,7 @@ namespace MovieServiceLibrary2
         }
         public MovieModelDTO GetMovie(int id)
         {
-            using (IMovieDataSource _ds = new MovieDataSource())
+            using (IMovieDataSource _ds = new MovieDataSource(new MovieDbContext()))
             {
                 MovieModel result;
                 result = _ds.GetMovies().Single(m => m.Id == id);
@@ -28,7 +28,7 @@ namespace MovieServiceLibrary2
 
         public IList<MovieModelDTO> GetMovies()
         {
-            using (IMovieDataSource _ds = new MovieDataSource())
+            using (IMovieDataSource _ds = new MovieDataSource(new MovieDbContext()))
             {
                 IList<MovieModelDTO> result = _ds.GetMovies().Select(m => new MovieModelDTO()
                 {
@@ -41,7 +41,7 @@ namespace MovieServiceLibrary2
 
         public IList<MovieModelDTO> GetMoviesByTitle(string title)
         {
-            using (IMovieDataSource _ds = new MovieDataSource())
+            using (IMovieDataSource _ds = new MovieDataSource(new MovieDbContext()))
             {
                 IQueryable<MovieModel> result = _ds.GetMovies().Where(m => m.Title == title);
                 return result.Select(m => new MovieModelDTO() { Id = m.Id, Title = m.Title }).ToList();
@@ -51,9 +51,9 @@ namespace MovieServiceLibrary2
 
         public IList<ReviewModelDTO> GetReviews(int movieId)
         {
-            using (IMovieDataSource _ds = new MovieDataSource())
+            using (IMovieDataSource _ds = new MovieDataSource(new MovieDbContext()))
             {
-                IList<ReviewModel> result = _ds.GetMovies().Single(m => m.Id == movieId).Reviews.ToList();
+                IList<ReviewModel> result = _ds.GetReviews(movieId).ToList();
                 return result.Select(r => new ReviewModelDTO()
                 {
                     Id = r.Id,
@@ -74,7 +74,7 @@ namespace MovieServiceLibrary2
         {
             try
             {
-                using (IMovieDataSource _ds = new MovieDataSource())
+                using (IMovieDataSource _ds = new MovieDataSource(new MovieDbContext()))
                 {
                     ReviewModelDTO currentReview = review;
                     MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
