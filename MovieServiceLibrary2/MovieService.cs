@@ -22,7 +22,7 @@ namespace MovieServiceLibrary2
             {
                 MovieModel result;
                 result = _ds.GetMovies().Single(m => m.Id == id);
-                return new MovieModelDTO() { Id = result.Id, Title = result.Title };
+                return new MovieModelDTO() { Id = result.Id, Title = result.Title, ReleaseDate = result.ReleaseDate };
             }
         }
 
@@ -33,7 +33,8 @@ namespace MovieServiceLibrary2
                 IList<MovieModelDTO> result = _ds.GetMovies().Select(m => new MovieModelDTO()
                 {
                     Id = m.Id,
-                    Title = m.Title
+                    Title = m.Title,
+                     ReleaseDate = m.ReleaseDate
                 }).ToList<MovieModelDTO>();
                 return result;
             }
@@ -65,7 +66,7 @@ namespace MovieServiceLibrary2
             }
         }
 
-        public void SubmitReview(
+        public ReviewModelDTO SubmitReview(
 
                                     int movieId,
 
@@ -78,9 +79,11 @@ namespace MovieServiceLibrary2
                 {
                     ReviewModelDTO currentReview = review;
                     MovieModel movie = _ds.GetMovies().Single(m => m.Id == movieId);
-                    ReviewModel rev = new ReviewModel() { Rating = currentReview.Rating, ReviewText = currentReview.ReviewText, Reviewer = currentReview.Reviewer, Summary = currentReview.Summary };
+                    ReviewModel rev = new ReviewModel() { Rating = currentReview.Rating, ReviewText = currentReview.ReviewText, Reviewer = currentReview.Reviewer, Summary = currentReview.Summary, Movie = movie };
                     movie.Reviews.Add(rev);
                     _ds.Save();
+                    return currentReview;
+
                 }
             }
             catch (Exception e)
