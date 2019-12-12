@@ -33,7 +33,7 @@ namespace MovieServiceLibrary2
             IList<ReviewModelDTO> GetReviews(int movieId);
 
             [OperationContract]
-            [WebInvoke(UriTemplate = "Reviews?movieId={movieId}")]
+            [WebInvoke(UriTemplate = "Reviews?movieId={movieId}",Method = "POST")]
             ReviewModelDTO SubmitReview( int movieId, ReviewModelDTO review);
          
             [OperationContract]
