@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMovieServiceHost", "ConsoleMovieServiceHost\ConsoleMovieServiceHost.csproj", "{F5D4192F-D18E-437F-A7BE-AC0D495322C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMovieClient", "ConsoleMovieClient\ConsoleMovieClient.csproj", "{B5F225DF-BAC6-4D9F-91A1-8223E44233E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{869D3DD8-04C6-4434-BAD6-522873F49DFE} = {869D3DD8-04C6-4434-BAD6-522873F49DFE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageLifCycleWebApp", "PageLifCycleWebApp\PageLifCycleWebApp.csproj", "{51A29612-759F-4E48-B5D4-DADE7B68D126}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,12 +44,16 @@ Global
 		{B5F225DF-BAC6-4D9F-91A1-8223E44233E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F225DF-BAC6-4D9F-91A1-8223E44233E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F225DF-BAC6-4D9F-91A1-8223E44233E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A81BEB8E-8BDC-4B19-851B-B600571762C3}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
+		SolutionGuid = {A81BEB8E-8BDC-4B19-851B-B600571762C3}
 	EndGlobalSection
 EndGlobal
