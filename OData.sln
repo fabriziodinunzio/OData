@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMovieClient", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageLifCycleWebApp", "PageLifCycleWebApp\PageLifCycleWebApp.csproj", "{51A29612-759F-4E48-B5D4-DADE7B68D126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePatternDemo", "CompositePatternDemo\CompositePatternDemo.csproj", "{148E27B0-D474-42A5-9966-4390ADD34749}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A29612-759F-4E48-B5D4-DADE7B68D126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148E27B0-D474-42A5-9966-4390ADD34749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148E27B0-D474-42A5-9966-4390ADD34749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148E27B0-D474-42A5-9966-4390ADD34749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148E27B0-D474-42A5-9966-4390ADD34749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
