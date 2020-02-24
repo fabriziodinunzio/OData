@@ -19,6 +19,13 @@ namespace XmlToExcel
         protected List<DataSet> ReadData(TextReader[] xmlFilePathList, string[] nsArray)
         {
             List<DataSet> ret = new List<DataSet>();
+            foreach (TextReader item in xmlFilePathList)
+            {
+                DataSet itemDataSet = new DataSet();
+                itemDataSet.InferXmlSchema(item, nsArray);
+                itemDataSet.ReadXml(item);
+                ret.Add(itemDataSet);
+            }
             return ret;
         }
 
