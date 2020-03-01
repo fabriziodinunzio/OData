@@ -11,10 +11,10 @@ namespace XmlToExcelWebClient
 		{
 			get => new string[]
 			{
-				@"<Applicazione xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance xmlns:xsd=http://www.w3.org/2001/XMLSchema>
-						<Id>0</Id>
-						<DtInsert>2020-02-21T12:48:22.7541586+01:00</DtInsert>
-						<DtUpdate>2020-02-21T12:48:22.7601621+01:00</DtUpdate>
+				@"<Applicazione xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+				<Id>0</Id>
+				<DtInsert>2020-02-21T12:48:22.7541586+01:00</DtInsert>
+				<DtUpdate>2020-02-21T12:48:22.7601621+01:00</DtUpdate>
 						<IdApplicazione>6</IdApplicazione>
 						<IdTipologiaApplicazione>10</IdTipologiaApplicazione>
 						<IdAreaApplicativa>10</IdAreaApplicativa>
@@ -61,7 +61,7 @@ namespace XmlToExcelWebClient
 							<Componente>
 								<Id>0</Id>
 								<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-								<DtUpdate xsi:nil=true />
+								<DtUpdate xsi:nil='true' />
 								<IdComponente>1</IdComponente>
 								<DescComponente>Componente Uno</DescComponente>
 								<IsUsed>false</IsUsed>
@@ -80,7 +80,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>2</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -91,7 +91,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>3</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -104,7 +104,7 @@ namespace XmlToExcelWebClient
 							<Componente>
 								<Id>0</Id>
 								<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-								<DtUpdate xsi:nil=true />
+								<DtUpdate xsi:nil='true' />
 								<IdComponente>2</IdComponente>
 								<DescComponente>Componente Due</DescComponente>
 								<IsUsed>false</IsUsed>
@@ -123,7 +123,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>5</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -134,7 +134,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>6</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -145,9 +145,9 @@ namespace XmlToExcelWebClient
 								</ListAaaComponente>
 							</Componente>
 						</ListComponente>
-					</Applicazione>"
+				</Applicazione>"
 					,
-				@"<Applicazione xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance xmlns:xsd=http://www.w3.org/2001/XMLSchema>
+				@"<Applicazione xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
 						<Id>0</Id>
 						<DtInsert>2020-02-21T12:48:22.7541586+01:00</DtInsert>
 						<DtUpdate>2020-02-21T12:48:22.7601621+01:00</DtUpdate>
@@ -197,7 +197,7 @@ namespace XmlToExcelWebClient
 							<Componente>
 								<Id>0</Id>
 								<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-								<DtUpdate xsi:nil=true />
+								<DtUpdate xsi:nil='true' />
 								<IdComponente>1</IdComponente>
 								<DescComponente>Componente Uno</DescComponente>
 								<IsUsed>false</IsUsed>
@@ -216,7 +216,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>2</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -227,7 +227,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>3</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -240,7 +240,7 @@ namespace XmlToExcelWebClient
 							<Componente>
 								<Id>0</Id>
 								<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-								<DtUpdate xsi:nil=true />
+								<DtUpdate xsi:nil='true' />
 								<IdComponente>2</IdComponente>
 								<DescComponente>Componente Due</DescComponente>
 								<IsUsed>false</IsUsed>
@@ -259,7 +259,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>5</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>
@@ -270,7 +270,7 @@ namespace XmlToExcelWebClient
 									<AAAComponente>
 										<Id>0</Id>
 										<DtInsert>2020-02-21T12:48:22.7601621+01:00</DtInsert>
-										<DtUpdate xsi:nil=true />
+										<DtUpdate xsi:nil='true' />
 										<IdAAAComponente>6</IdAAAComponente>
 										<IdAreaApplicativa>10</IdAreaApplicativa>
 										<IdApplicazione>6</IdApplicazione>

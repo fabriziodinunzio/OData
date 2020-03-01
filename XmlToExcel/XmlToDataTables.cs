@@ -13,23 +13,25 @@ namespace XmlToExcel
     {
         public XmlLoader()
         {
-            
+
         }
 
-        protected List<DataSet> ReadData(TextReader[] xmlFilePathList, string[] nsArray)
+        protected List<DataSet> ReadData(Stream[] xmlFilePathList, string[] nsArray)
         {
             List<DataSet> ret = new List<DataSet>();
-            foreach (TextReader item in xmlFilePathList)
+            foreach (Stream item in xmlFilePathList)
             {
                 DataSet itemDataSet = new DataSet();
+                item.Position = 0;
                 itemDataSet.InferXmlSchema(item, nsArray);
+                item.Position = 0;
                 itemDataSet.ReadXml(item);
                 ret.Add(itemDataSet);
             }
             return ret;
         }
 
-        protected List<DataSet>ReadData(string[] xmlFilePathList, string[] nsArray)
+        protected List<DataSet> ReadData(string[] xmlFilePathList, string[] nsArray)
         {
             List<DataSet> ret = new List<DataSet>();
             foreach (string item in xmlFilePathList)
@@ -54,7 +56,7 @@ namespace XmlToExcel
                         if (dataTable.Columns.IndexOf(item) >= 0)
                         {
                             dataTable.Columns.Remove(item);
-                        } 
+                        }
                     }
                 }
             }
@@ -63,7 +65,7 @@ namespace XmlToExcel
         public DataTable ReadDataTables(string xmlFilePathList, string tableName, string nsArray, string columnToRemoveList)
         {
             DataTable dtOut = new DataTable();
-            
+
             //dtOut.Columns.Add("IdApplicazione", typeof(int));
             //dtOut.Columns.Add("DescApplicazione", typeof(string));
             List<DataRow> rows = null;
@@ -77,7 +79,7 @@ namespace XmlToExcel
                     dataTableList = ReadData(xmlFilePathSplit, nsArraySplit).Select(ds => ds.Tables[tableName]).ToList();
                 }
 
-                
+
                 if (dataTableList != null && dataTableList.Count() > 0)
                 {
                     rows = new List<DataRow>();
@@ -87,7 +89,7 @@ namespace XmlToExcel
                     }
 
                     RemoveFromColumns(dtOut, columnToRemoveList);
-                    
+
                     foreach (DataTable tableItem in dataTableList)
                     {
                         foreach (DataRow rowItem in tableItem.Select())
@@ -100,9 +102,50 @@ namespace XmlToExcel
                             dtOut.Rows.Add(newRow);
                         }
                     }
+                }
+            }
+            //rows.Select(r => r.Field<string>("DescApplicazione")).ToList();
+            dtOut.AcceptChanges();
+            return dtOut;
+        }
 
-                    
-                    
+        public DataTable ReadDataTables(Stream[] xmlFilePathList, string tableName, string nsArray, string columnToRemoveList)
+        {
+            DataTable dtOut = new DataTable();
+
+            //dtOut.Columns.Add("IdApplicazione", typeof(int));
+            //dtOut.Columns.Add("DescApplicazione", typeof(string));
+            List<DataRow> rows = null;
+            List<DataTable> dataTableList = null;
+            if (xmlFilePathList != null && xmlFilePathList.Count() > 0)
+            {
+
+                string[] nsArraySplit = nsArray.Split('|');
+                dataTableList = ReadData(xmlFilePathList, nsArraySplit).Select(ds => ds.Tables[tableName]).ToList();
+
+
+                if (dataTableList != null && dataTableList.Count() > 0)
+                {
+                    rows = new List<DataRow>();
+                    foreach (DataColumn item in dataTableList[0].Columns)
+                    {
+                        dtOut.Columns.Add(new DataColumn() { ColumnName = item.ColumnName, DataType = item.DataType });
+                    }
+
+                    RemoveFromColumns(dtOut, columnToRemoveList);
+
+                    foreach (DataTable tableItem in dataTableList)
+                    {
+                        foreach (DataRow rowItem in tableItem.Select())
+                        {
+                            DataRow newRow = dtOut.NewRow();
+                            foreach (DataColumn columnItem in dtOut.Columns)
+                            {
+                                newRow[columnItem.ColumnName] = rowItem[columnItem.ColumnName];
+                            }
+                            dtOut.Rows.Add(newRow);
+                        }
+                    }
                 }
             }
             //rows.Select(r => r.Field<string>("DescApplicazione")).ToList();
