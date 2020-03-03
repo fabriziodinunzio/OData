@@ -10,9 +10,14 @@ namespace AdapterDemo.Model
 {
     public class PatternRenderer
     {
+        private IRenderAdapter _renderedAdapter;
+        public PatternRenderer(IRenderAdapter renderedAdapter)
+        {
+            _renderedAdapter = renderedAdapter;
+        }
         public string ListPatterns(IEnumerable<Pattern> patterns)
         {
-            return patterns.ToString();
+            return _renderedAdapter.ListPatterns(patterns); ;
         }
     }
 
@@ -70,21 +75,22 @@ namespace AdapterDemo.Model
         #endregion
     }
 
-    public interface IRendereAdapter
+    public interface IRenderAdapter
     {
-        void Render(TextWriter writer);
+        string ListPatterns(IEnumerable<Pattern> patterns);
     }
 
-    public class RenderAdapter : IRendereAdapter
+    public class RenderAdapter : IRenderAdapter
     {
-        IDbDataAdapter _patternDbDataAdapter;
-        public RenderAdapter(IDbDataAdapter patternDbDataAdapter)
+        
+        private DataRenderer _dataRender;
+    
+        public string ListPatterns(IEnumerable<Pattern> patterns)
         {
-            _patternDbDataAdapter = patternDbDataAdapter;
-        }
-        public void Render(TextWriter writer)
-        {
-            throw new NotImplementedException();
+            _dataRender = new DataRenderer(new PatternDbDataAdapter(patterns));
+            TextWriter writer = new StringWriter();
+            _dataRender.Render(writer);
+            return writer.ToString();
         }
     }
 }

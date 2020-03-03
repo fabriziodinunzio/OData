@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using AdapterDemo;
+using AdapterDemo.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdapterUnitTest
@@ -34,6 +36,23 @@ namespace AdapterUnitTest
             string result = writer.ToString();
             Console.WriteLine(result);
             Assert.AreEqual(6, result.Count(c => c == '\n'));
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Pattern[] patterns = { 
+                new Pattern() { Id = 1, Name = "Adapter", Description = "Adattatore" }
+                ,
+                new Pattern() { Id = 2, Name = "Composite", Description = "Composto liste" }
+                ,
+                new Pattern() { Id = 3, Name = "Singleton", Description = "Solo soletto" }
+            };
+            IRenderAdapter adapter = new RenderAdapter();
+            PatternRenderer renderer = new PatternRenderer(adapter);
+            string result = renderer.ListPatterns(patterns);
+            Console.WriteLine(result);
+            Assert.AreEqual(5, result.Count(c => c == '\n'));
         }
     }
 }
