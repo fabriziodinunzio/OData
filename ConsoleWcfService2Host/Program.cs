@@ -33,6 +33,8 @@ namespace ConsoleWcfService2Host
                 {
                     Console.WriteLine(@"Contract name:   {0}", endpoint.Contract.Name);
                     Console.WriteLine(@"Contract address:   {0}", endpoint.Address.Uri.AbsoluteUri);
+                    Console.WriteLine(@"ListenUri:   {0}", endpoint.ListenUri);
+                    Console.WriteLine(@"ListenUriMode:   {0}", endpoint.ListenUriMode.ToString());
                     foreach (AddressHeader header in endpoint.Address.Headers)
                     {
                         Console.WriteLine(@"Contract address name:   {0}", header.Name);

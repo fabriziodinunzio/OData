@@ -46,7 +46,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Echo.cs" />
     <Compile Include="ErrorHandler.cs" />
+    <Compile Include="IEcho.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="MyOperationBehavior.cs" />
     <Compile Include="MyParameterInspector.cs" />
