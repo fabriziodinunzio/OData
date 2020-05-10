@@ -53,12 +53,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MovieServiceLibrary2\MovieServiceLibrary2.csproj">
-      <Project>{869D3DD8-04C6-4434-BAD6-522873F49DFE}</Project>
-      <Name>MovieServiceLibrary2</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
